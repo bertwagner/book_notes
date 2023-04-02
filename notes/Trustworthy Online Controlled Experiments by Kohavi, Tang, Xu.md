@@ -1,4 +1,4 @@
-# Introductory Topics for Everyone
+# Part I: Introductory Topics for Everyone
 
 ## Chapter 1 - Introduction and Motivation
 
@@ -76,5 +76,17 @@
      - Novelty effects: highly visual new features attract users initially, but they drop off once it is not new anymore.
      - Detecting primacy and novelty effects can be done by plotting usage over time: Treatment effects should be constant over time.
 
-
 ## Chapter 4: Experimentation Platform and Culture
+ - Experimentation maturity models:
+   - Crawl - computing summary stats needed for hypothesis testing. 1 experiment/month.
+   - Walk - defining standard metrics for organization. 1 experiment/week.
+   - Run - shift experiments to run at scale. Codify an OEC. Organization uses experimentation to evaluate most new features and changes. 1 experiment/day.
+   - Fly - A/B experiments are ran as the norm for every change. 3+ experiments/day.
+ - Experimentation buy-in from leadership:
+   - Establish shared goals.
+   - Set goals in terms of improvements to metrics instead of goals to ship features.
+   - Empower teams to innovate and improve metrics within organizational guard rails.
+   - Ensure portfolio of high risk/high reward projects along with incremental gain projects.
+   - Short release cycles to create healthy, quick feedback loops.
+
+# Part II: Selected Topics for Everyone
