@@ -43,3 +43,38 @@
     - Cost to launch:
       - Painted doors: it's cheap to build a fake feature to see if impacts an OEC (eg. create a coupon code field to see if it reduces revenue per user). Building the feature out fully will actually cost money. Is the CBA worth it?
       - Costs also include ongoing maintenance for the feature.
+
+## Chapter 3 - Twyman's Law and Experimentation Trustworthiness
+
+ - Twyman's Law - The more unusual or interesting the data, the more likely they are have to been the result of an error.
+ - When we see surprising results, we try to build a story around it if it is positive or find a flaw to dismiss it if it is negative.
+   - To increase trust in experiments,  must have set of tests to indicate something might be wrong with the result.
+
+### Common errors for misinterpretation of statistical results
+ - Lack of statistical power - Null hypotheses: there is no difference in metric value between Control and Treatment. A common mistake is to assume if a metric is not statistically significant, that it has no Treatment effect. It could be there, but experiment is underpowered to detect the effect size being seen.
+ - Misinterpreting p-values - p-value is the probablity of obtaining a result equal to or more extreme than what is observed, assuming the Null hypothesis is true. There are many ways to misinterpret this. 
+ - P-Value Peeking - Don't look at p-value results as they come in - you might stop experiment early if the p-value results line up with what you want.
+ - Multiple Hypothesis Tests - Don't run multiple tests and choose the one with the best p-value result. It is likely the result and effect size are likely to be biased.
+ - Confidence intervals - CIs represent how often the confidence interval should contain the true Treatment effect. CIs can overlap up to 29% and still be statistically significant.
+ - Threats to internal validity:
+   - Experiment users should not interfere with one another (social networks, skype, two sided market places, etc...)
+   - Survivorship bias: Analyzing users who have been active for some time might be survivorship bias - only the ones who want to use the treatment stick around.
+   - Intention to treat: Analyzing only people who choose to participate leads to selection bias and overstates the treatment effect.
+   - Sample Ratio Mismatch (SRM): If ratio of users between variatns is not close to the designed ratio, the experiment suffers from SRM. 
+     - With large numbers, ratios smaller than .99 or greater than 1.01 can indicate serious issues.
+     - SRM checks are critical and must be put in as guardrails.
+     - SRM can happen due to:
+       - Browser redirects (performance differences, bots, bookmarking redirected treatment page).
+       - Lossy instrumentation (1x1 tracking gifs aren't perfect, not all users enable javascript).
+       - Residual or carryover effects (new experiments have new code which are more likley to have bugs. Can run A/A test first to ensure no new bugs).
+       - Bad hash functions for randomization
+       - Time of day effects
+ - Threats to External Validity - Can an experiment be generalized to other populations?
+   - Generalizing across populations is easy to test - just rerun the experiment.
+   - Generalizing across time is harder. Sometimes need to leave a hold-out group running for months to test.
+     - Primacy effects: when a change is introduced, it may take a while for users to adopt it.
+     - Novelty effects: highly visual new features attract users initially, but they drop off once it is not new anymore.
+     - Detecting primacy and novelty effects can be done by plotting usage over time: Treatment effects should be constant over time.
+
+
+## Chapter 4: Experimentation Platform and Culture
